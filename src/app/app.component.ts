@@ -1,4 +1,6 @@
+import { TaskService } from './task.service';
 import { Component } from '@angular/core';
+import { Observable, BehaviorSubject } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  tasks = [];
+  taskObserver;
+
+  constructor(private _taskService: TaskService) {
+    this._taskService.taskObserver.subscribe((tasks) => {
+      this.tasks = tasks;
+    })
+  }
+
 }

@@ -1,0 +1,12 @@
+<fieldset>
+  <legend>Task Component</legend>
+  
+  <button (click)="addTaskThroughTaskComponent('New Task by Task Component')">Add Task</button>
+
+  <ul>
+    <li *ngFor="let task of tasks">
+      {{ task }}
+    </li>
+  </ul>
+  
+</fieldset>
